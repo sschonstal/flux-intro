@@ -141,8 +141,7 @@ class TodoActions = {
 }
     </code></pre>
   </div>
-  <div class="step" data-x="2000" data-y="12000" data-z="-3000" data-scale="2">
-  </div>
+
 
   <div class="step code-block-container" data-x="4500" data-y="4500" data-scale="2">
     <h1 class="title-text">Store</h1>
@@ -227,6 +226,7 @@ class dispatcher {
   </div>
 
   <div id="view" class="step code-block-container" data-x="9400" data-y="-300" data-scale="2">
+    <h1 class="title-text">View</h1>
     <pre><code class="code-block">
 class TodoApp extends React.Component {
   getInitialState() {
@@ -238,7 +238,7 @@ class TodoApp extends React.Component {
     </code></pre>
   </div>
 
-  <div class="step code-block-container" data-x="9400" data-y="600" data-scale="2">
+  <div class="step code-block-container" data-x="9400" data-y="800" data-scale="2">
     <pre><code class="code-block">
 
   onChange() {
@@ -251,8 +251,8 @@ class TodoApp extends React.Component {
   </div>
 
   <div class="step" data-x="12000" data-y="-1500" data-scale="2">
-    <img style="padding-bottom:100px" src="./img/redux.png"/>
-    <ul style="padding-bottom:250px">
+    <img style="padding-bottom:50px" src="./img/redux.png"/>
+    <ul style="padding-bottom:150px">
       <li type="circle">Single source of truth</li>
       <li type="circle">State is read-only</li>
       <li type="circle">Changes are made with pure functions</li>
@@ -298,8 +298,8 @@ let unsubscribe = store.subscribe(() =>
   </div>
 
   <div class="step" data-x="17000" data-y="-1500" data-scale="2">
-    <h1 style="font-size:75px; padding-bottom:75px">Reducers Never:</h1>
-    <ul style="padding-bottom:250px">
+    <h1 style="font-size:75px; padding-bottom:30px">Reducers Never:</h1>
+    <ul style="padding-bottom:150px">
       <li type="circle">Mutate its arguments</li>
       <li type="circle">Perform side effects like API calls and routing transitions</li>
       <li type="circle">Call non-pure functions, </li>
@@ -413,7 +413,7 @@ import Link from '../components/Link'
 const mapStateToProps = (state,
                          ownProps) => {
   return {
-    active: state.visibility === true
+    active: state.visibility
   }
 }
      </code></pre>
@@ -454,9 +454,24 @@ render(
      </code></pre>
   </div>
 
-  <div id="overview" class="step" data-x="6000" data-y="15,00" data-scale="12">
+  <div class="step slide" style="text-align:center" data-x="22000" data-y="-1500">
+    <h1 style="padding-top: 150px">Debug tools demo</h1>
   </div>
 
+  <div class="step slide" data-x="23100" data-y="-1500">
+    <h1 style="text-align:center">Resources</h1>
+    <ul style="padding-top: 50px; padding-left: 50px">
+      <li>http://facebook.github.io/flux</li>
+      <li>http://redux.js.org/</li>
+      <li>https://egghead.io/</li>
+    </ul>
+    <div style="padding-left: 100px">
+      <q style="font-size: 28px">Getting Started with Redux by</q>
+      <q style="font-size: 28px">Dan Abramov</q>
+    </div>
+  </div>
+  <div id="overview" class="step" data-x="6000" data-y="15,00" data-scale="12">
+  </div>
 </div>
 
 <div class="hint">
