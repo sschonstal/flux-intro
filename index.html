@@ -281,9 +281,9 @@ store.dispatch(addTodo(text))
     <pre><code class="code-block">
 
 import { createStore } from 'redux'
-import todoApp from './reducers'
+import reducer from './reducers'
 
-let store = createStore(todoApp)
+let store = createStore(reducer)
 
 
      </code></pre>
@@ -355,7 +355,106 @@ function todoApp(state = initialState, action) {
      </code></pre>
   </div>
 
-  <div id="overview" class="step" data-x="3000" data-y="1500" data-scale="10">
+  <div class="step" data-x="15000" data-y="6500" data-z=-2000 data-scale="2">
+    <img src="./img/redux-flow.png"/>
+  </div>
+
+  <div class="step" data-x="20000" data-y="-1500" data-scale="2">
+    <div style="width:1200px">
+    <h1 class="code-block">npm install --save react-redux</h1>
+    </div>
+  </div>
+
+  <div class="step" style="margin-left:-350px" data-x="20000" data-y="100" data-scale="2">
+    <table style="width:1200px;padding-left:0">
+      <tr>
+        <td></td>
+        <td><b>Presentational Components</b></td>
+        <td><b>Container Components</b></td>
+      </tr>
+      <tr>
+        <td><b>Purpose</b></td>
+        <td>How things look</td>
+        <td>How things work</td>
+      </tr>
+      <tr>
+        <td><b>To read data</b></td>
+        <td>Read data from props</td>
+        <td>Subscribe to Redux state</td>
+      </tr>
+      <tr>
+        <td><b>To update data</b></td>
+        <td>Invoke callbacks from props</td>
+        <td>Dispatch Redux actions</td>
+      </tr>
+      <tr>
+        <td><b>Aware of Redux</b></td>
+        <td>No</td>
+        <td>Yes</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="step" data-x="20000" data-y="1800" data-scale="2">
+      <h1 style="font-size:75px; padding-bottom:75px">Container components</h1>
+      <q>Use <code class="code-block">store.subscribe()</code> to sync redux store with react state and supply data to probs</q>
+  </div>
+
+  <div class="step code-block-container" data-x="20000" data-y="3300" data-scale="2">
+    <pre><code class="code-block">
+import { connect } from 'react-redux'
+import { setFilter } from '../actions'
+import Link from '../components/Link'
+     </code></pre>
+  </div>
+  <div class="step code-block-container" data-x="20000" data-y="4000" data-scale="2">
+    <pre><code class="code-block">
+
+const mapStateToProps = (state,
+                         ownProps) => {
+  return {
+    active: state.visibility === true
+  }
+}
+     </code></pre>
+  </div>
+  <div class="step code-block-container" data-x="20000" data-y="5100" data-scale="2">
+    <pre><code class="code-block">
+
+const mapDispatchToProps = (dispatch,
+                            ownProps) => {
+  return {
+    onClick: () => {
+      dispatch(setFilter(ownProps.filter))
+    }
+  }
+}
+     </code></pre>
+  </div>
+  <div class="step code-block-container" data-x="20000" data-y="6300" data-scale="2">
+    <pre><code class="code-block">
+const FilterLink = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Link)
+
+export default FilterLink
+     </code></pre>
+  </div>
+
+  <div class="step code-block-container" data-x="20000" data-y="7700" data-scale="2">
+    <pre><code class="code-block">
+import { Provider } from 'react-redux'
+import { createStore } from 'redux'
+let store = createStore(todoApp)
+render(
+  &lt;Provider store={store}&gt;
+    &lt;App&gt;
+  &lt;/Provider&gt;
+     </code></pre>
+  </div>
+
+  <div id="overview" class="step" data-x="6000" data-y="15,00" data-scale="12">
   </div>
 
 </div>
